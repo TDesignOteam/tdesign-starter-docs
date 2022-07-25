@@ -319,5 +319,3 @@ export const vue3DocsConfig = {
     },
   ],
 };
-
-
