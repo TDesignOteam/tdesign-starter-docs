@@ -6,7 +6,7 @@
     "preview": "vite preview",
     "build:preview": "vite build --mode preview"
   },
-  "author": "valeywzhang <valeywzhang@tencent.com>",
+  "author": "tdesign",
   "dependencies": {
     "tdesign-site-components": "^0.10.4",
     "tdesign-vue": "^0.40.2",
