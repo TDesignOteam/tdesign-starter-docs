@@ -5,7 +5,7 @@
 ```sh
 # 拉取远程文档仓库
 
-git clone -b master https://git.woa.com/TDesign/tdesign-templates/docs-vue2.git
+git clone git@github.com:TDesignOteam/tdesign-starter-docs.git
 
 # 基于 master 创建个人分支
 
@@ -17,7 +17,7 @@ npm i
 
 # 启动服务器
 
-npm run docs:dev
+npm run dev
 
 # 可以开始写作了，enjoy！
 ```
