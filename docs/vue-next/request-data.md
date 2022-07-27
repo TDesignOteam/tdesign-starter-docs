@@ -20,8 +20,7 @@ const Api = {
 
 export function getList() {
   return (
-    request.get <
-    ListResult >
+    request.get<ListResult>
     {
       url: Api.BaseList,
     }
@@ -30,8 +29,7 @@ export function getList() {
 
 export function getCardList() {
   return (
-    request.get <
-    CardListResult >
+    request.get<CardListResult>
     {
       url: Api.CardList,
     }
@@ -59,20 +57,13 @@ const fetchData = async () => {
 };
 ```
 
-### Mock 数据
-
-如果需要进行数据 Mock，在 `vite.config.js` 中，将 viteMockServe 中配置 `localEnabled` 为 `true` ，即可开启 mock server 的拦截。
-
-```js
-viteMockServe({
-    mockPath: 'mock',
-    localEnabled: true,
-}),
-```
-
 ### 请求代理
 
-在`vite.config.js`中进行代理设置，使用`Vite`的`http-proxy`。
+项目中默认启用了直连代理模式，在`src/config/proxy.ts`中的`isRequestProxy`设置开关
+
+**tips: 如果`isRequestProxy`为`true`则采用该配置文件中的地址请求，会绕过`vite.config.js`中设置的代理**
+
+您可以在关闭直连代理模式后，在`vite.config.js`中进行代理设置，使用`Vite`的`http-proxy`。
 
 - 示例：
 
@@ -108,3 +99,100 @@ export default defineConfig({
 ```
 
 完整选项详见[此处](https://github.com/http-party/node-http-proxy#options)
+
+
+### Mock 数据
+
+如果需要进行数据 Mock，在 `vite.config.js` 中，将 viteMockServe 中配置 `localEnabled` 为 `true` ，即可开启 mock server 的拦截。
+
+```js
+viteMockServe({
+    mockPath: 'mock',
+    localEnabled: true,
+}),
+```
+
+### 高级配置-部分请求不代理的场景
+
+在某些业务场景下可能会使用到腾讯云的COS对象存储或其他厂商的上传服务，在此情况下则无法直接使用`@/utils/request`进行请求，否则地址会被代理。
+
+此情况下可以在`src/utils/request/index.ts`中最下方添加新的请求实例
+
+- 示例：
+
+```js
+function createOtherAxios(opt?: Partial<CreateAxiosOptions>) {
+  return new VAxios(
+    merge(
+      <CreateAxiosOptions>{
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
+        // 例如: authenticationScheme: 'Bearer'
+        authenticationScheme: '',
+        // 超时
+        timeout: 10 * 1000,
+        // 携带Cookie
+        withCredentials: true,
+        // 头信息
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        // 数据处理方式
+        transform,
+        // 配置项，下面的选项都可以在独立的接口请求中覆盖
+        requestOptions: {
+          // 接口地址
+          apiUrl: '',
+          // 是否自动添加接口前缀
+          isJoinPrefix: false,
+          // 接口前缀
+          // 例如: https://www.baidu.com/api
+          // urlPrefix: '/api'
+          urlPrefix: '',
+          // 是否返回原生响应头 比如：需要获取响应头时使用该属性
+          isReturnNativeResponse: false,
+          // 需要对返回数据进行处理
+          isTransformResponse: false,
+          // post请求的时候添加参数到url
+          joinParamsToUrl: false,
+          // 格式化提交参数时间
+          formatDate: true,
+          // 是否加入时间戳
+          joinTime: true,
+          // 忽略重复请求
+          ignoreRepeatRequest: true,
+          // 是否携带token
+          withToken: true,
+          // 重试
+          retry: {
+            count: 3,
+            delay: 1000,
+          },
+        },
+      },
+      opt || {},
+    ),
+  );
+}
+export const requestOther = createOtherAxios();
+```
+
+在添加新实例后，引入新实例`@/utils/requestOther`即可继续开发
+
+### 高级配置-不需要重试的场景
+
+此情况下可以在`src/utils/request/index.ts`中最下方的`createAxios`方法中的参数`retry`移除即可
+
+### 高级配置-修改请求返回的通用模型
+
+首先需要您在`src/types/axios.d.ts`中的`Result`中声明您的通用模型
+
+- 示例：
+
+```js
+export interface Result<T = any> {
+  code: number;
+  data: T;
+}
+```
+
+随后在`src/utils/request/index.ts`中的`transform`方法中对您的数据进行预处理
+
+**tips: 如果您不需要对数据预处理则可以在最下方将`isTransformResponse`设置关闭**

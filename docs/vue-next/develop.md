@@ -5,11 +5,10 @@ spline: explain
 
 ### 项目结构
 
-正如您初始化项目后可以看到，TDesign Starter 的整个项目的目录结构如下：
+正如您初始化项目后可以看到，TDesign Starter 的整个项目的目录结构大致如下：
 
 ```bash
 .
-├── PROXY.md
 ├── README.md                         # 说明文档
 ├── index.html                        # 主 html 文件
 ├── docs
@@ -21,10 +20,10 @@ spline: explain
 ├── public
 │     └── favicon.ico
 ├── src                               # 页面代码
-├── .env                               # 生产环境变量
+├── .env                              # 生产环境变量
 ├── .env.development                  # 开发环境变量
 ├── commitlint.config.js              # commintlint 规范
-├── tsconfig.json
+├── tsconfig.json                     # typescript 配置文件
 └── vite.config.js                    # vite 配置文件
 ```
 
@@ -32,7 +31,7 @@ spline: explain
 
 如上图所示，`src`目录下是页面代码，大部分情况下，您只需要增删`src`目录下的代码即可。
 
-`src`内的结构如下所示，TDesign 推荐您在使用的过程中，遵守既有的目录结构，以规范项目代码的组织结构。
+`src`内的结构大致如下所示，TDesign 推荐您在使用的过程中，遵守既有的目录结构，以规范项目代码的组织结构。
 
 ```bash
 src
@@ -51,9 +50,11 @@ src
 │     └── style.ts                       # 布局样式配置
 ├── constants
 │     └── index.ts
+├── hooks                              # 钩子层
+│     └── index.ts
 ├── layouts                            # 布局层 可动态调整
-│     ├── setting.vue
-│     ├── blank.vue
+│     ├── setting.vue                    # 配置生成组件
+│     ├── blank.vue                      # 空白路由
 │     └── index.tsx
 ├── pages                              # 业务模块层
 │     ├── dashboard-base                     # 一个页面组件
@@ -66,23 +67,24 @@ src
 │           ├── index.less
 │           └── index.vue
 ├── router                                 # 路由层
-├── store                                  # vuex 数据层
+├── store                                  # Pinia 数据层
 │     ├── index.ts
 │     └── modules
 │           ├── notification.ts
+│           ├── ...
 │           ├── setting.ts
 │           └── user.ts
-├── style                                 # 样式目录
-│     ├── font-family.less                  # 字体文件（腾讯体W7）
-│     ├── layout.less                       # 全局样式布局
-│     ├── reset.less                       # 对默认样式的重置
-│     └── variables.less                    # 模板样式 token 
-├── types                                 # 类型文件目录
-└── utils                                 # 工具层
-│     ├── charts.ts                       # 图表工具封装
-│     ├── color.ts                       # 色彩工具封装
+├── style                              # 样式目录
+│     ├── font-family.less               # 字体文件（腾讯体W7）
+│     ├── layout.less                    # 全局样式布局
+│     ├── reset.less                     # 对默认样式的重置
+│     └── variables.less                 # 模板样式 token 
+├── types                             # 类型文件目录
+└── utils                             # 工具层
+│     ├── charts.ts                     # 图表工具封装
+│     ├── color.ts                      # 色彩工具封装
 │     └── request                       # 请求工具封装
-├── permission.ts                           # 权限页面
+├── permission.ts                     # 权限逻辑
 └── main.ts                           # 入口逻辑文件
 
 ```
@@ -101,6 +103,7 @@ cd src/pages && mkdir my-new-page
 cd my-new-page && touch index.vue  # 可根据实际需求增加样式、变量、等文件
 ```
 
+Options API 示例
 ```vue
 <!-- src/pages/my-new-page/index.vue -->
 <templates>
@@ -124,6 +127,41 @@ export default {
 //...
 </style>
 ```
+
+Composition API 示例
+```vue
+<!-- src/pages/my-new-page/index.vue -->
+<templates>
+  <div>
+    <t-page-header>index.vue示例</t-page-header>
+  </div>
+</templates>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+// 定义变量
+const count = ref(0)
+
+// 定义方法
+function increment() {
+    count.value++
+}
+
+// 生命周期钩子
+onMounted(() => {
+    console.log(`The initial count is ${count.value}.`)
+})
+</script>
+<style lang="less">
+// 如果需要导入样式
+@import "./index.less";
+
+//...
+</style>
+```
+
+**tips: 一般情况下推荐您使用`Composition API`进行开发，`Composition API`有关的好处请[点击此处](https://vuejs.org/guide/introduction.html#api-styles)**
+
 
 然后，需要在配置新页面的路由。根据具体的需求，修改 `src/router/modules` 中的文件。
 
@@ -173,6 +211,7 @@ export default [
 
 然后，在页面组件中去引用这个组件
 
+Options API 示例
 ```vue
 <!-- 页面组件 new-page.vue -->
 <template>
@@ -180,9 +219,7 @@ export default [
     <t-page-header>个人中心</t-page-header>
     <!-- 使用组件，在组件中的内容会替换掉组件的slot-->
     <my-component
-      v-slot="{
-      'new-component':'我插入slot组件的内容'
-    }"
+      v-slot="{ 'new-component':'我插入slot组件的内容' }"
     >
     </my-component>
   </div>
@@ -203,6 +240,31 @@ export default {
 };
 </script>
 
+<style lang="less">
+// 如果需要导入样式
+@import "./index.less";
+
+//...
+</style>
+```
+
+Composition API 示例
+```vue
+<!-- 页面组件 new-page.vue -->
+<template>
+  <div>
+    <t-page-header>个人中心</t-page-header>
+    <!-- 使用组件，在组件中的内容会替换掉组件的slot-->
+    <my-component
+      v-slot="{ 'new-component':'我插入slot组件的内容' }"
+    >
+    </my-component>
+  </div>
+</template>
+<script setup>
+// 引入组件
+import MyComponent from "@/components/new-component.vue";
+</script>
 <style lang="less">
 // 如果需要导入样式
 @import "./index.less";
@@ -241,4 +303,4 @@ export default [
 ];
 ```
 
-如果项目内置的布局不能满足您的需求，您也可以自己实现定制化布局，推荐使用 [TDesign UI layout](http://tdesign.tencent.com/vue/components/layout)
+如果项目内置的布局不能满足您的需求，您也可以自己实现定制化布局，推荐使用 [TDesign UI layout](http://tdesign.tencent.com/vue-next/components/layout)

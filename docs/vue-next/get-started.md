@@ -7,6 +7,8 @@ spline: explain
 
 为了方便您快速开始使用 TDesign Starter 开发您的项目，TDesign 提供了一个脚手架 [tdesign-starter-cli](https://www.npmjs.com/package/tdesign-starter-cli)，方便您通过它来初始化项目。在安装脚手架之前，请确保您已经拥有`node`与`npm`的开发环境。
 
+**tips: 您也可以通过[Github](https://github.com/Tencent/tdesign-vue-next-starter)来初始化您的项目**
+
 安装`tdesign-starter-cli`
 
 ```bash
@@ -22,6 +24,8 @@ td-starter init
 <img src="https://tdesign.gtimg.com/starter/starter-cli.png" style="border-radius:6px;border: 1px solid var(--component-border);"/>
 
 ### 启动项目
+
+项目并没有限制使用何种包管理器，您也可以采用Yarn或pnpm做您的包管理器，以下使用npm做演示
 
 安装依赖
 

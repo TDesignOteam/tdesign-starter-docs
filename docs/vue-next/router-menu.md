@@ -7,6 +7,8 @@ spline: router-menu
 
 为了减少开发配置和理解成本，在 TDesign Starter 项目中，管理菜单路由都规范在`src/router` 这个目录下进行配置。
 
+**tips: 通常情况下不需要去理解和修改`index.ts`, 只需要在`modules`目录下增删文件，即可自动添加更新路由**
+
 配置内容是一个对应菜单层级的可嵌套的数组，如
 
 ```js
@@ -22,13 +24,13 @@ spline: router-menu
         path: "base",
         name: "ListBase",
         component: () => import("@/pages/list/base/index.vue"),
-        meta: { title: "基础列表页" },
+        meta: { title: "基础列表页", orderNo: 0 },
       },
       {
         path: "card",
         name: "ListCard",
         component: () => import("@/pages/list/card/index.vue"),
-        meta: { title: "卡片列表页" },
+        meta: { title: "卡片列表页", hiddenBreadcrumb: true },
       },
       {
         path: "filter",
@@ -56,7 +58,9 @@ spline: router-menu
 - `meta` 主要用途是路由在菜单上展示的效果的配置
   - `meta.title` 该路由在菜单上展示的标题
   - `meta.icon` 该路由在菜单上展示的图标
+  - `meta.orderNo` 该路由在菜单上展示先后顺序，数字越小越靠前，默认为零
   - `meta.hidden` 决定该路由是否在菜单上进行展示
+  - `meta.hiddenBreadcrumb` 如果启用了面包屑，决定该路由是否在面包屑上进行展示
   - `meta.single` 如果是多级菜单且只存在一个节点，想在菜单上只展示一级节点，可以使用该配置。_请注意该配置需配置在父节点_
 - `children` 子菜单的配置
 
@@ -64,6 +68,7 @@ spline: router-menu
 
 由于设计美观需要，官网示例只展示了二级菜单，如果存在三级的配置需求，可以参考以下的代码进行配置：
 
+**tips: 务必注意，三级菜单需要在二级菜单中的组件包含`<router-view>`标签才能正常显示，[详情](https://router.vuejs.org/zh/guide/essentials/nested-routes.html)**
 ```js
 {
  path: '/menu',
