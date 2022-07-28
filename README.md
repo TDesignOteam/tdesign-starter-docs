@@ -7,7 +7,7 @@
 
 git clone git@github.com:TDesignOteam/tdesign-starter-docs.git
 
-# 基于 master 创建个人分支
+# 基于 develop 创建个人分支
 
 git checkout -b feature/my-branch-name
 
