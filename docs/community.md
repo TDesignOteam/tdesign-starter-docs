@@ -7,7 +7,8 @@ TDesign 非常支持社区的小伙伴们在使用 `TDesign` 和 `TDesign Starte
 
 🛠 页面模板社区其他版本
 
-- 服务端渲染 TDesign + Nuxt 3 https://github.com/yixiaco/tdesign-vue-next-nuxt-starter
+- [服务端渲染 TDesign + Nuxt 3](https://github.com/yixiaco/tdesign-vue-next-nuxt-starter)
+- [中后台前后端整合方案 TDesign(vue3) + Java(Springcloud微服务方案)](https://gitee.com/frsimple/springcloud) 
 
 🎥 开发视频/教程相关
 
