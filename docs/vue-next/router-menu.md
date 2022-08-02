@@ -18,7 +18,7 @@ spline: router-menu
     name: "list",
     component: Layout,
     redirect: "/list/base",
-    meta: { title: "列表页", icon: ListIcon },
+    meta: { title: "列表页", icon: ListIcon, expanded: true },
     children: [
       {
         path: "base",
@@ -58,6 +58,7 @@ spline: router-menu
 - `meta` 主要用途是路由在菜单上展示的效果的配置
   - `meta.title` 该路由在菜单上展示的标题
   - `meta.icon` 该路由在菜单上展示的图标
+  - `meta.expanded` 决定该路由在菜单上是否默认展开
   - `meta.orderNo` 该路由在菜单上展示先后顺序，数字越小越靠前，默认为零
   - `meta.hidden` 决定该路由是否在菜单上进行展示
   - `meta.hiddenBreadcrumb` 如果启用了面包屑，决定该路由是否在面包屑上进行展示
