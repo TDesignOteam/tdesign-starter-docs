@@ -39,9 +39,9 @@ npm run lint:fix
 
 文件的命名规范按照不同情况进行命名
 
-1.如果该文件是单文件组件/类，采用`PascalCase`形式命名，方便导入和使用。如`TDesginSelect.vue`
+1.如果该文件是单文件组件/类，采用`PascalCase`形式命名，方便导入和使用。如`TDesignSelect.vue`
 
-2.如果该文件是目录下的主文件，采用index名称命名，方便导入。如 `index.ts`, `index.vue`
+2.如果该文件是目录下的主文件，采用 index 名称命名，方便导入。如 `index.ts`, `index.vue`
 
 3.如果该文件是接口定义文件，采用`camelCase`形式命名，方便区分文件关联性。如 `list.ts` 和 `listModel.ts`
 
