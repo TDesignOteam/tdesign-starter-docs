@@ -163,10 +163,10 @@ export default [
 
 组件的开发方式和 **页面组件** 的开发方式类似，不过您不再需要去为它增加路由，而是在您的组件中引用即可。
 
-首先，在 `src/components` 下新增一个组件文件，`new-component.vue`
+首先，在 `src/components` 下新增一个组件文件，`NewComponent.vue`
 
 ```vue
-<!-- 自定义组件 new-component.vue -->
+<!-- 自定义组件 NewComponent.vue -->
 <template>
   <div>
     <slot name="new-component" />
