@@ -50,8 +50,8 @@ src
 │          └── index.vue
 ├── config                             # 配置层
 │     ├── global.ts                      # 全局常量配置
-│     ├── proxy.ts                       # 代理配置
-│     ├── routes.js                      # 布局路由配置
+│     ├── color.ts                      # 全局主题色彩配置
+│     ├── host.ts                       # host配置
 │     └── style.ts                       # 布局样式配置
 ├── constants
 │     └── index.ts

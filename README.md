@@ -1,36 +1,47 @@
-# TDesign Starter 文档的开发指南
+<p style="display:flex; justify-content: center">
 
-## 写作前准备
+</p>
+<p align="center">
+  <a href="https://tdesign.tencent.com/starter/react/#/dashboard/base" target="_blank">
+    <img alt="TDesign Logo" width="200" src="https://tdesign.gtimg.com/starter/brand-logo.svg">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatility"></a>
+  <a href="https://github.com/Tencent/tdesign-react-starter/blob/develop/LICENSE">
+    <img src="https://img.shields.io/npm/l/tdesign-react.svg?sanitize=true" alt="License">
+  </a>
+</p>
+
+### 项目简介
+
+TDesign Starter Docs 是一个TDesign Starter系列项目的文档仓库，TDesign Starter官网文档所呈现的内容来自TDesign Starter Docs。
+
+
+## 启动项目
 
 ```sh
-# 拉取远程文档仓库
-
-git clone git@github.com:TDesignOteam/tdesign-starter-docs.git
-
-# 基于 develop 创建个人分支
-
-git checkout -b feature/my-branch-name
-
-# 安装依赖包
-
 npm i
-
-# 启动服务器
 
 npm run dev
 
-# 可以开始写作了，enjoy！
 ```
+## 修改文档
 
-## 写作步骤
+如果只是对现有文档进行改动，请修改docs目录下对应的文件内容即可。
 
-### 一、创建 Markdown 文件
+## 补充文档
+
+如果是补充新文档 则需要创建新的Markdown 文件 并将文档添加到菜单栏。
+
+### 创建 Markdown 文件
 
 ```sh
 touch docs/get-started.md
 ```
 
-### 二、将你的文档添加到左侧菜单栏（可选）
+### 将你的文档添加到菜单栏
 
 打开 `site/config.js` 文件，修改 export 的对象即可。比如，
 
@@ -69,6 +80,4 @@ module.exports = {
 
 ## 提交内容
 
-写作完成后，请提 PR（合入 `develop`）给其他同学审查。
-
-MR 通过后，CI 会自动将文档发布上线。
+完成后，请提 PR（合入 `develop`）进行文档内容的审查。

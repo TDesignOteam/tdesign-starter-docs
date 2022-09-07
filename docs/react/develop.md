@@ -36,10 +36,8 @@ src
 ├── assets                            # 资源层
 ├── components                        # 公共组件层
 ├── config                             # 配置层
-│     ├── global.ts                      # 全局常量配置
-│     ├── color.ts                       # 主题色彩配置
-│     ├── menu.ts                       # 菜单配置
-│     └── routes.js                      # 路由配置
+│     ├── host.ts                      # 全局host配置
+│     └──color.ts                       # 全局主题色彩配置
 │
 ├── layouts                            # 布局层
 ├── services                           # 接口模型
