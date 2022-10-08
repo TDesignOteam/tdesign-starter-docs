@@ -52,7 +52,7 @@ spline: router-menu
 数组中每个配置字段都有具体的作用：
 
 - `path` 是当前路由的路径，会与配置中的父级节点的 path 组成该页面路由的最终路径；如果需要跳转外部链接，可以将`path`设置为 http 协议开头的路径。
-- `name` 影响多标签 Tab 页的 keep-alive 的能力
+- `name` 影响多标签 Tab 页的 keep-alive 的能力，如果要确保页面有keep-alive的能力，请保证该路由的`name`与对应页面（SFC)的`name`保持一致。
 - `component` 渲染该路由时使用的页面组件
 - `redirect` 重定向的路径
 - `meta` 主要用途是路由在菜单上展示的效果的配置
