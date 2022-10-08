@@ -51,7 +51,6 @@ import { lazy } from "react";
 数组中每个配置字段都有具体的作用：
 
 - `path` 是当前路由的路径，会与配置中的父级节点的 path 组成该页面路由的最终路径
-- `name` 影响多标签 Tab 页的 keep-alive 的能力
 - `component` 渲染该路由时使用的页面组件
 - `redirect` 重定向的路径
 - `meta` 主要用途是路由在菜单上展示的效果的配置
