@@ -54,7 +54,8 @@
               <a href="/starter/docs/react/get-started" target="_blank">
                 <t-button class="card-btn" variant="outline" theme="default">使用文档</t-button>
               </a>
-              <img src="../../assets/icon/react.svg" />
+              <img class="feature-img-light" src="../../assets/icon/react.svg" />
+              <img class="feature-img-dark" src="../../assets/icon/react.svg" />
             </div>
           </div>
         </div>
@@ -109,7 +110,8 @@
               <t-button class="card-btn" variant="outline" theme="default" disabled>
                 设计资源
               </t-button>
-              <img src="../../assets/icon/react.svg" />
+              <img class="feature-img-light" src="../../assets/icon/react.svg" />
+              <img class="feature-img-dark" src="../../assets/icon/react.svg" />
             </div>
           </div>
         </div>
@@ -125,7 +127,6 @@
           </div>
         </div>
         <div class="feature-right">
-          <!-- <img src="https://tdesign.gtimg.com/starter/home-page/feature-startup.png" /> -->
           <img class="feature-img-light"
             src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-erminal.png" />
           <img class="feature-img-dark"
