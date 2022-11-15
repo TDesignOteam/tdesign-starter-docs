@@ -9,6 +9,7 @@ TDesign 非常支持社区的小伙伴们在使用 `TDesign` 和 `TDesign Starte
 
 - [服务端渲染 TDesign + Nuxt 3](https://github.com/yixiaco/tdesign-vue-next-nuxt-starter)
 - [中后台前后端整合方案 TDesign(vue3) + Java(Springcloud微服务方案)](https://gitee.com/frsimple/springcloud) 
+- [基于TDesign Vue Next Starter的携带BladeX的基础功能的页面末班](https://github.com/dianjie/tdesign-console)
 
 🎥 开发视频/教程相关
 
