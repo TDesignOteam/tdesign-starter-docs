@@ -560,7 +560,6 @@ export default {
     border: 1px solid var(--component-border);
     box-sizing: border-box;
     background: none;
-    height: 36px;
     color: var(--text-interactive);
   }
 
