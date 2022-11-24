@@ -16,8 +16,7 @@
 
 ### 项目简介
 
-TDesign Starter Docs 是一个TDesign Starter系列项目的文档仓库，TDesign Starter官网文档所呈现的内容来自TDesign Starter Docs。
-
+TDesign Starter Docs 是一个 TDesign Starter 系列项目的文档仓库，TDesign Starter 官网文档所呈现的内容来自 TDesign Starter Docs。
 
 ## 启动项目
 
@@ -27,13 +26,14 @@ npm i
 npm run dev
 
 ```
+
 ## 修改文档
 
-如果只是对现有文档进行改动，请修改docs目录下对应的文件内容即可。
+如果只是对现有文档进行改动，请修改 docs 目录下对应的文件内容即可。
 
 ## 补充文档
 
-如果是补充新文档 则需要创建新的Markdown 文件 并将文档添加到菜单栏。
+如果是补充新文档 则需要创建新的 Markdown 文件 并将文档添加到菜单栏。
 
 ### 创建 Markdown 文件
 
