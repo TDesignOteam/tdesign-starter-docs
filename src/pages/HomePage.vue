@@ -28,8 +28,8 @@
                   使用文档
                 </t-button>
               </a>
-              <img class="feature-img-light" src="../../assets/icon/vue.png" />
-              <img class="feature-img-dark" src="../../assets/icon/vue.png" />
+              <img class="feature-img-light" src="../../assets/icons/vue.svg" />
+              <img class="feature-img-dark" src="../../assets/icons/vue.svg" />
             </div>
             <div class="card">
               <p class="card-title">中后台</p>
@@ -44,8 +44,8 @@
                   使用文档
                 </t-button>
               </a>
-              <img class="feature-img-light" src="../../assets/icon/vue.png" />
-              <img class="feature-img-dark" src="../../assets/icon/vue.png" />
+              <img class="feature-img-light" src="../../assets/icons/vue.svg" />
+              <img class="feature-img-dark" src="../../assets/icons/vue.svg" />
             </div>
             <div class="card">
               <p class="card-title">中后台</p>
@@ -62,9 +62,9 @@
               </a>
               <img
                 class="feature-img-light"
-                src="../../assets/icon/react.png"
+                src="../../assets/icons/react.svg"
               />
-              <img class="feature-img-dark" src="../../assets/icon/react.png" />
+              <img class="feature-img-dark" src="../../assets/icons/react.svg" />
             </div>
           </div>
         </div>
@@ -97,11 +97,11 @@
               </t-button>
               <img
                 class="feature-img-light"
-                src="../../assets/icon/mini-program.png"
+                src="../../assets/icons/mini-program.svg"
               />
               <img
                 class="feature-img-dark"
-                src="../../assets/icon/mini-program.png"
+                src="../../assets/icons/mini-program.svg"
               />
             </div>
             <div class="card">
@@ -123,8 +123,8 @@
               >
                 使用文档
               </t-button>
-              <img class="feature-img-light" src="../../assets/icon/vue.png" />
-              <img class="feature-img-dark" src="../../assets/icon/vue.png" />
+              <img class="feature-img-light" src="../../assets/icons/vue.svg" />
+              <img class="feature-img-dark" src="../../assets/icons/vue.svg" />
             </div>
             <div class="card">
               <p class="card-title">Mobile 移动端</p>
@@ -147,9 +147,9 @@
               </t-button>
               <img
                 class="feature-img-light"
-                src="../../assets/icon/react.png"
+                src="../../assets/icons/react.svg"
               />
-              <img class="feature-img-dark" src="../../assets/icon/react.png" />
+              <img class="feature-img-dark" src="../../assets/icons/react.svg" />
             </div>
           </div>
         </div>
