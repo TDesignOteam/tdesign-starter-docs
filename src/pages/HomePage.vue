@@ -229,7 +229,7 @@ export default {
 :root[theme-mode="light"] {
   --inner-padding-top-bottom: 32px;
   --feature-margin-top-bottom: 128px;
-  --card-padding: 28px;
+  --card-padding: 24px;
   --card-flex-direction-column: row;
   --card-subtitle-flex-direction: row;
   --card-subtitle-flex-align: center;
@@ -254,14 +254,14 @@ export default {
   --banner-title-margin-bottom: 120px;
   --banner-content-padding: 180px 48px 96px;
   --banner-subtitle-margin-top: 24px;
-  --content-feature-padding-left-right: 80px;
+  --content-feature-padding-left-right: 48px;
   --homepage-banner-title-color: #000000;
   --homepage-banner-color: #fafafa;
   --homepage-banner-size: 720px;
   --card-container-context-width: 800px;
   --card-container-margin-top: 96px;
   --card-width: 405.33px;
-  --card-margin-left-right: 5px;
+  --card-margin-left-right: 12px;
   --card-margin-top-down: 0px;
   --card-container-padding-left-right: 36px;
   --card-background-image: url("https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-web-light.png");
@@ -342,12 +342,12 @@ export default {
 
 @media screen and (max-width: 1000px) {
   :root[theme-mode="dark"] {
-    --card-background-image: url("https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-web-dark.png");
-    --card-mobile-background-image: url("https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-mobile-dark.png");
+    --card-background-image: none;
+    --card-mobile-background-image: none;
   }
   :root[theme-mode="light"] {
-    --card-background-image: url("https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-web-light.png");
-    --card-mobile-background-image: url("https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-mobile-light.png");
+    --card-background-image: none;
+    --card-mobile-background-image: none;
   }
   .container {
     --card-flex-direction-column: column;
@@ -445,6 +445,7 @@ export default {
     font-size: var(--banner-title-font-size);
     line-height: var(--banner-title-line-height);
     color: var(--homepage-banner-title-color);
+    letter-spacing: -1px;
   }
 
   &-subtitle {
@@ -456,6 +457,7 @@ export default {
     margin-top: var(--banner-subtitle-margin-top);
     color: var(--text-secondary);
     margin-bottom: var(--banner-title-margin-bottom);
+    letter-spacing: -1px;
   }
 }
 
@@ -518,7 +520,13 @@ export default {
   border-radius: 6px;
   padding: var(--card-padding);
   flex: 1;
+  &:first-child {
+    margin-left: 0;
+  }
 
+  &:last-child {
+    margin-right: 0;
+  }
   &-title {
     font-size: 14px;
     line-height: 22px;
@@ -538,7 +546,7 @@ export default {
     align-items: var(--card-subtitle-flex-align);
     flex-direction: var(--card-subtitle-flex-direction);
     > span:first-child {
-      margin-right: 8px;
+      margin: 8px 8px 8px 0;
     }
     .t-tag {
       font-weight: normal;
@@ -548,12 +556,9 @@ export default {
 
   &-btn {
     display: inline-block;
-    margin: 23px 8px 8px 0;
-    padding: 8px var(--btn-padding-left-right);
+    margin: 24px 16px 0 0;
     border: 1px solid var(--component-border);
-    font-size: 16px;
     box-sizing: border-box;
-    border-radius: 4px;
     background: none;
     height: 36px;
     color: var(--text-interactive);
