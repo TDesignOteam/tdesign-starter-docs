@@ -9,7 +9,7 @@
   "author": "tdesign",
   "dependencies": {
     "tdesign-site-components": "^0.10.4",
-    "tdesign-vue": "^0.40.2",
+    "tdesign-vue": "^0.50.1",
     "vue": "2.6.14",
     "vue-router": "^3.5.3"
   },
