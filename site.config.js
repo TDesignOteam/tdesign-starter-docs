@@ -48,6 +48,12 @@ export const vueDocsConfig = {
           component: () => import("@docs/custom-config.md"),
         },
         {
+          title: "使用 Design Token",
+          name: "design-token",
+          path: "/starter/docs/vue/design-token",
+          component: () => import("@docs/design-token.md"),
+        },
+        {
           title: "样式与静态资源",
           name: "develop-style",
           path: "/starter/docs/vue/style",
@@ -155,6 +161,12 @@ export const reactDocsConfig = {
           component: () => import("@docs/custom-config.md"),
         },
         {
+          title: "使用 Design Token",
+          name: "design-token",
+          path: "/starter/docs/react/design-token",
+          component: () => import("@docs/design-token.md"),
+        },
+        {
           title: "样式与静态资源",
           name: "develop-style",
           path: "/starter/docs/react/style",
@@ -260,6 +272,12 @@ export const vue3DocsConfig = {
           name: "custom-config",
           path: "/starter/docs/vue-next/custom-config",
           component: () => import("@docs/custom-config.md"),
+        },
+        {
+          title: "使用 Design Token",
+          name: "design-token",
+          path: "/starter/docs/vue-next/design-token",
+          component: () => import("@docs/design-token.md"),
         },
         {
           title: "样式与静态资源",
