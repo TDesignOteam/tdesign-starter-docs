@@ -63,6 +63,8 @@ spline: router-menu
   - `meta.hidden` 决定该路由是否在菜单上进行展示
   - `meta.hiddenBreadcrumb` 如果启用了面包屑，决定该路由是否在面包屑上进行展示
   - `meta.single` 如果是多级菜单且只存在一个节点，想在菜单上只展示一级节点，可以使用该配置。_请注意该配置需配置在父节点_
+  - `meta.frameSrc` 内嵌iframe的地址
+  - `meta.frameBlank` 内嵌iframe的地址是否以新窗口打开
 - `children` 子菜单的配置
 
 由于 TDesign 菜单的限制，最多只允许配置到`三级菜单`。如果菜单层级超过三级，我们建议梳理业务场景，判断层级是否合理。
