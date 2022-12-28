@@ -36,7 +36,7 @@ COPY --from=builder dist dist
 
 #### 开启 Hash 路由
 
-项目默认是 `history router`，路径上会默认不带上 `#`, 如果希望有更简洁的路由, 可以修改`BrowserRouter`为`HashRouter`,在 `src/main.tsx`配置如下：
+项目默认是 `history router`，路径上不会默认带上 `#`, 如果希望使用 hash 路由, 可以修改`BrowserRouter`为`HashRouter`,在 `src/main.tsx`配置如下：
 
 ```js
 import { HashRouter } from "react-router-dom";
