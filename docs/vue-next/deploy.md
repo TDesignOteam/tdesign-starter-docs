@@ -32,15 +32,17 @@ RUN  mkdir -p /data/wwwlogs/ && chown -R nobody:nobody /data/wwwlogs/
 COPY --from=builder dist dist
 ```
 
-### History-Router 部署
+### Hash Router 部署
 
-#### 开启 History 路由
+#### 开启 Hash 路由
 
-项目默认是 `hash router`，路径上会默认带上 `#`, 如果希望有更简洁的路由, 在 `src/router/index.ts`配置如下：
+项目默认是 `history router`，路径上不会默认带上 `#`, 如果希望使用hash路由, 在 `src/router/index.ts`配置如下：
 
 ```js
-const route = new VueRouter({
-  mode: "history",
+import { createWebHashHistory } from "vue-router";
+
+createRouter({
+  history: createWebHashHistory(),
 });
 ```
 
