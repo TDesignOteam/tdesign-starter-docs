@@ -18,7 +18,7 @@
             <div class="card">
               <p class="card-title">中后台</p>
               <p class="card-subtitle">Vue</p>
-              <a href="/starter/vue/" target="_blank">
+              <a href="/starter/vue" target="_blank">
                 <t-button class="card-btn" variant="outline" theme="default">
                   预览
                 </t-button>
@@ -34,7 +34,7 @@
             <div class="card">
               <p class="card-title">中后台</p>
               <p class="card-subtitle">Vue Next</p>
-              <a href="/starter/vue-next/" target="_blank">
+              <a href="/starter/vue-next" target="_blank">
                 <t-button class="card-btn" variant="outline" theme="default">
                   预览
                 </t-button>
@@ -50,7 +50,7 @@
             <div class="card">
               <p class="card-title">中后台</p>
               <p class="card-subtitle">React</p>
-              <a href="/starter/react/" target="_blank">
+              <a href="/starter/react" target="_blank">
                 <t-button class="card-btn" variant="outline" theme="default"
                   >预览</t-button
                 >
