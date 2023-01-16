@@ -52,7 +52,7 @@ spline: router-menu
 数组中每个配置字段都有具体的作用：
 
 - `path` 是当前路由的路径，会与配置中的父级节点的 path 组成该页面路由的最终路径；如果需要跳转外部链接，可以将`path`设置为 http 协议开头的路径。
-- `name` 影响多标签 Tab 页的 keep-alive 的能力，如果要确保页面有keep-alive的能力，请保证该路由的`name`与对应页面（SFC)的`name`保持一致。
+- `name` 影响多标签 Tab 页的 keep-alive 的能力，如果要确保页面有 keep-alive 的能力，请保证该路由的`name`与对应页面（SFC)的`name`保持一致。
 - `component` 渲染该路由时使用的页面组件
 - `redirect` 重定向的路径
 - `meta` 主要用途是路由在菜单上展示的效果的配置
@@ -63,8 +63,8 @@ spline: router-menu
   - `meta.hidden` 决定该路由是否在菜单上进行展示
   - `meta.hiddenBreadcrumb` 如果启用了面包屑，决定该路由是否在面包屑上进行展示
   - `meta.single` 如果是多级菜单且只存在一个节点，想在菜单上只展示一级节点，可以使用该配置。_请注意该配置需配置在父节点_
-  - `meta.frameSrc` 内嵌iframe的地址
-  - `meta.frameBlank` 内嵌iframe的地址是否以新窗口打开
+  - `meta.frameSrc` 内嵌 iframe 的地址
+  - `meta.frameBlank` 内嵌 iframe 的地址是否以新窗口打开
 - `children` 子菜单的配置
 
 由于 TDesign 菜单的限制，最多只允许配置到`三级菜单`。如果菜单层级超过三级，我们建议梳理业务场景，判断层级是否合理。
@@ -72,6 +72,7 @@ spline: router-menu
 由于设计美观需要，官网示例只展示了二级菜单，如果存在三级的配置需求，可以参考以下的代码进行配置：
 
 **tips: 务必注意，三级菜单需要在二级菜单中的组件包含`<router-view>`标签才能正常显示，[详情](https://router.vuejs.org/zh/guide/essentials/nested-routes.html)**
+
 ```js
 {
  path: '/menu',

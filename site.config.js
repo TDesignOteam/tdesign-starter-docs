@@ -262,6 +262,12 @@ export const vue3DocsConfig = {
           component: () => import("@docs/vue-next/router-menu.md"),
         },
         {
+          title: "权限控制",
+          name: "permission-control",
+          path: "/starter/docs/vue-next/permission-control",
+          component: () => import("@docs/vue-next/permission-control.md"),
+        },
+        {
           title: "请求与数据",
           name: "develop-request",
           path: "/starter/docs/vue-next/request-data",
