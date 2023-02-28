@@ -14,7 +14,7 @@ npm run build
 ### 资源预览
 
 ```bash
-npm run serve
+npm run preview
 ```
 
 该命令会启动一个静态 Web 服务器，将 `dist` 文件夹运行在<http://localhost:5000>，这样就可以在本地环境查看构建产物是否正常。
