@@ -65,6 +65,7 @@ spline: router-menu
   - `meta.single` 如果是多级菜单且只存在一个节点，想在菜单上只展示一级节点，可以使用该配置。_请注意该配置需配置在父节点_
   - `meta.frameSrc` 内嵌 iframe 的地址
   - `meta.frameBlank` 内嵌 iframe 的地址是否以新窗口打开
+  - `meta.keepAlive` 可决定路由是否开启keep-alive，默认开启。
 - `children` 子菜单的配置
 
 由于 TDesign 菜单的限制，最多只允许配置到`三级菜单`。如果菜单层级超过三级，我们建议梳理业务场景，判断层级是否合理。
