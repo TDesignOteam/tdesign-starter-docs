@@ -18,6 +18,7 @@ spline: permission-control
   - 非具体页面路由，默认提供了`LAYOUT`、`BLANK`和`IFRAME`
   - 具体页面路由，请设置为对应页面在项目中的相对路径，如基础列表页对应的是`/list/base/index`
 - `meta.icon` 字段：请直接使用 TDesign 的 icon 的中划线命名，如`view-list`，所有图标可以在 [TDesign 图标列表](https://tdesign.tencent.com/vue/components/icon#%E5%85%A8%E9%83%A8%E5%9B%BE%E6%A0%87) 中找到。
+  
   **tips:此处图标的序列化是借助了 vite 3+ 的能力引入 node_modules 中的第三方包，会根据 name 引入对应的包内的图标 不会发起网络请求。**
 
 序列化后的菜单列表示例如下所示，或可以参考此接口进行返回 👉🏻 [请求菜单列表](https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/get-menu-list)
