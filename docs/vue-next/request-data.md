@@ -5,7 +5,7 @@ spline: explain
 
 ### 发起请求
 
-TDesign Starter 初始化的项目中，采用 [axios](https://github.com/axios/axios) 做为请求的资源库，并对其做了封装，可以从`src/utils/request`的路径中引入封装的 request，并在具体场景中使用。我们建议您在`src/apis`目录中管理您的项目使用到的 api，并在具体组件/页面中使用。
+TDesign Starter 初始化的项目中，采用 **[axios](https://github.com/axios/axios)** 做为请求的资源库，并对其做了封装，可以从`src/utils/request`的路径中引入封装的 request，并在具体场景中使用。我们建议您在`src/apis`目录中管理您的项目使用到的 api，并在具体组件/页面中使用。
 大部分情况下，您不需要改动`src/utils/request`中的代码，中需要在`src/apis`目录中新增您使用的接口，并在页面中引入接口使用即可。
 
 ```js
@@ -20,7 +20,8 @@ const Api = {
 
 export function getList() {
   return (
-    request.get<ListResult>
+    request.get <
+    ListResult >
     {
       url: Api.BaseList,
     }
@@ -29,7 +30,8 @@ export function getList() {
 
 export function getCardList() {
   return (
-    request.get<CardListResult>
+    request.get <
+    CardListResult >
     {
       url: Api.CardList,
     }
@@ -59,11 +61,11 @@ const fetchData = async () => {
 
 ### 请求代理
 
-项目中默认启用了直连代理模式，在`src/config/proxy.ts`中的`isRequestProxy`设置开关
+项目中默认启用了直连代理模式，`.env`配置文件的中的`VITE_IS_REQUEST_PROXY`环境变量是对应是否启用直连代理模式的开关，环境变量的具体内容请查看 **[进入开发-环境变量](/starter/docs/vue-next/develop#环境变量)** 章节。
 
-**tips: 如果`isRequestProxy`为`true`则采用该配置文件中的地址请求，会绕过`vite.config.js`中设置的代理**
+**tips: 如果`VITE_IS_REQUEST_PROXY`为`true`则采用该配置文件中的地址请求，会绕过`vite.config.js`中设置的代理**
 
-您可以在关闭直连代理模式后，在`vite.config.js`中进行代理设置，使用`Vite`的`http-proxy`。
+您可以在关闭直连代理模式后，在`vite.config.js`中进行代理设置，使用 **Vite** 的`http-proxy`。
 
 - 示例：
 
@@ -98,8 +100,7 @@ export default defineConfig({
 });
 ```
 
-完整选项详见[此处](https://github.com/http-party/node-http-proxy#options)
-
+完整选项详见 [http-party 的配置](https://github.com/http-party/node-http-proxy#options)。
 
 ### Mock 数据
 
@@ -114,7 +115,7 @@ viteMockServe({
 
 ### 高级配置-部分请求不代理的场景
 
-在某些业务场景下可能会使用到腾讯云的COS对象存储或其他厂商的上传服务，在此情况下则无法直接使用`@/utils/request`进行请求，否则地址会被代理。
+在某些业务场景下可能会使用到腾讯云的 COS 对象存储或其他厂商的上传服务，在此情况下则无法直接使用`@/utils/request`进行请求，否则地址会被代理。
 
 此情况下可以在`src/utils/request/index.ts`中最下方添加新的请求实例
 
