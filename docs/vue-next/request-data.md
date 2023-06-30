@@ -196,3 +196,36 @@ export interface Result<T = any> {
 随后在`src/utils/request/index.ts`中的`transform`方法中对您的数据进行预处理
 
 **tips: 如果您不需要对数据预处理则可以在最下方将`isTransformResponse`设置关闭**
+
+### 高级配置-修改请求params参数的序列化方式
+
+使用[qs](https://github.com/ljharb/qs)序列化请求params参数
+
+首先需要您在`src/utils/request/Axios.ts`中的`supportParamsStringify`方法中选择您需要的序列化方式
+
+- 示例：
+
+```js
+// 支持params数组参数格式化
+  supportParamsStringify(config: AxiosRequestConfig) {
+    const headers = config.headers || this.options.headers;
+    const contentType = headers?.['Content-Type'] || headers?.['content-type'];
+
+    if (contentType === ContentTypeEnum.FormURLEncoded || !Reflect.has(config, 'params')) {
+      return config;
+    }
+
+    return {
+      ...config,
+      //修改此处的arrayFormat，选项有'indices' 'brackets' 'repeat' 'comma'等，请参考qs文档根据项目需要选择
+      paramsSerializer: (params: any) => stringify(params, { arrayFormat: 'brackets' }), 
+    };
+  }
+```
+
+随后在同一文件中的`request`方法中，取消调用`supportParamsStringify`行的注释
+```js
+conf = this.supportParamsStringify(conf);
+```
+
+**tips: axios会使用内置的toFormData以brackets方式序列化params参数，`如果您不需要修改，无需进行上述操作`**
