@@ -39,48 +39,53 @@ src
 ├── apis                              # 请求层
 ├── assets                            # 资源层
 ├── components                        # 公共组件层
-│     ├── breadcrumb.vue
-│     ├── ...
-│     └── tvision
-│          └── index.vue
-├── config                             # 配置层
-│     ├── global.ts                      # 全局常量配置
+├── config                            # 配置层
+│     ├── global.ts                     # 全局常量配置
 │     ├── color.ts                      # 全局主题色彩配置
-│     ├── host.ts                       # host配置
-│     └── style.ts                       # 布局样式配置
-├── constants
+│     └── style.ts                      # 布局样式配置
+├── constants                         # 常量层
 │     └── index.ts
-├── hooks                              # 钩子层
+├── hooks                             # 钩子层
 │     └── index.ts
-├── layouts                            # 布局层 可动态调整
-│     ├── setting.vue                    # 配置生成组件
-│     ├── blank.vue                      # 空白路由
-│     └── index.tsx
-├── pages                              # 业务模块层
-│     ├── dashboard-base                     # 一个页面组件
-│     │     ├── const.ts                       # 该页面组件用到的常量
-│     │     ├── index.less                     # 该页面组件的样式文件
-│     │     ├── index.ts
+├── layouts                           # 布局层 可动态调整
+│     ├── components                    # 布局组件
+│     │     ├── Breadcrumb.vue            # 面包屑组件
+│     │     ├── ...
+│     │     └── SideNav.vue               # 侧边栏组件
+│     ├── frame                         # 嵌入式组件
 │     │     └── index.vue
+│     ├── setting.vue                   # 配置生成组件
+│     ├── blank.vue                     # 空白路由
+│     └── index.vue
+├── pages                             # 业务模块层
+│     ├── dashboard                     # 一个页面组件
+│     │     └── base
+│     │           ├── components          # 该页面组件用到的子组件
+│     │           ├── constants.ts        # 该页面组件用到的常量
+│     │           ├── index.ts
+│     │           └── index.vue
 │     ├── ...
 │     └── user
+│           ├── constants.ts
 │           ├── index.less
+│           ├── index.ts
 │           └── index.vue
-├── router                                 # 路由层
-├── store                                  # Pinia 数据层
+├── router                            # 路由层
+├── store                             # Pinia 数据层
 │     ├── index.ts
 │     └── modules
 │           ├── notification.ts
 │           ├── ...
 │           ├── setting.ts
 │           └── user.ts
-├── style                              # 样式目录
-│     ├── font-family.less               # 字体文件（腾讯体W7）
-│     ├── layout.less                    # 全局样式布局
-│     ├── reset.less                     # 对默认样式的重置
-│     └── variables.less                 # 模板样式 token 
+├── style                             # 样式目录
+│     ├── font-family.less              # 字体文件（腾讯体W7）
+│     ├── layout.less                   # 全局样式布局
+│     ├── reset.less                    # 对默认样式的重置
+│     └── variables.less                # 模板样式 token
 ├── types                             # 类型文件目录
 └── utils                             # 工具层
+│     ├── route                         # 路由工具封装
 │     ├── charts.ts                     # 图表工具封装
 │     ├── color.ts                      # 色彩工具封装
 │     └── request                       # 请求工具封装
@@ -88,6 +93,19 @@ src
 └── main.ts                           # 入口逻辑文件
 
 ```
+
+### 环境变量
+
+在项目的根目录，有 `.env` 配置文件，项目会根据启动的命令中的 `mode` 参数，加载指定的配置文件的配置来运行，
+如本地环境执行 `npm run dev`，因为对于命令中的`mode` 参数为`development`，项目运行会加载`.env.development`的配置来运行。
+项目初始化内置了 `.env.development`、`.env.test` 和 `.env` 分别对应本地开发环境、测试环境 和 生产（正式）环境，也可以根据实际需求继续扩展。
+
+#### 内置的环境变量
+
+- `VITE_BASE_URL`：项目启动运行默认的 URL
+- `VITE_IS_REQUEST_PROXY`： 项目是否启动请求代理
+- `VITE_API_URL`: 项目默认请求的 URL
+- `VITE_API_URL_PREFIX`：项目默认请求的前缀
 
 ### 开始开发
 
@@ -104,6 +122,7 @@ cd my-new-page && touch index.vue  # 可根据实际需求增加样式、变量�
 ```
 
 Options API 示例
+
 ```vue
 <!-- src/pages/my-new-page/index.vue -->
 <templates>
@@ -129,6 +148,7 @@ export default {
 ```
 
 Composition API 示例
+
 ```vue
 <!-- src/pages/my-new-page/index.vue -->
 <templates>
@@ -137,20 +157,20 @@ Composition API 示例
   </div>
 </templates>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
 // 定义变量
-const count = ref(0)
+const count = ref(0);
 
 // 定义方法
 function increment() {
-    count.value++
+  count.value++;
 }
 
 // 生命周期钩子
 onMounted(() => {
-    console.log(`The initial count is ${count.value}.`)
-})
+  console.log(`The initial count is ${count.value}.`);
+});
 </script>
 <style lang="less">
 // 如果需要导入样式
@@ -161,7 +181,6 @@ onMounted(() => {
 ```
 
 **tips: 一般情况下推荐您使用`Composition API`进行开发，`Composition API`有关的好处请[点击此处](https://vuejs.org/guide/introduction.html#api-styles)**
-
 
 然后，需要在配置新页面的路由。根据具体的需求，修改 `src/router/modules` 中的文件。
 
@@ -212,15 +231,14 @@ export default [
 然后，在页面组件中去引用这个组件
 
 Options API 示例
+
 ```vue
 <!-- 页面组件 new-page.vue -->
 <template>
   <div>
     <t-page-header>个人中心</t-page-header>
     <!-- 使用组件，在组件中的内容会替换掉组件的slot-->
-    <my-component
-      v-slot="{ 'new-component':'我插入slot组件的内容' }"
-    >
+    <my-component v-slot="{ 'new-component':'我插入slot组件的内容' }">
     </my-component>
   </div>
 </template>
@@ -249,15 +267,14 @@ export default {
 ```
 
 Composition API 示例
+
 ```vue
 <!-- 页面组件 new-page.vue -->
 <template>
   <div>
     <t-page-header>个人中心</t-page-header>
     <!-- 使用组件，在组件中的内容会替换掉组件的slot-->
-    <my-component
-      v-slot="{ 'new-component':'我插入slot组件的内容' }"
-    >
+    <my-component v-slot="{ 'new-component':'我插入slot组件的内容' }">
     </my-component>
   </div>
 </template>
