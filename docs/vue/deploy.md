@@ -51,6 +51,7 @@ const route = new VueRouter({
 所以，您要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是您的 app 所依赖的页面。
 nginx 服务器配置如下：
 
+**部署到根目录**
 ```bash
 server {
     if ($request_method = HEAD) {
@@ -70,6 +71,20 @@ server {
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
         root   /usr/share/nginx/html;
+    }
+}
+```
+**部署到非根目录**
+```env
+# 在.env 配置路径
+VITE_BASE_URL = /admin/
+```
+```bash
+server {
+    location /admin/ {
+        alias   /usr/share/nginx/html/;
+        index  index.html index.htm;
+        try_files  $uri $uri/ /admin/index.html;
     }
 }
 ```
