@@ -53,6 +53,7 @@ createRouter({
 所以，您要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是您的 app 所依赖的页面。
 nginx 服务器配置如下：
 
+**部署到根目录**
 ```bash
 server {
     if ($request_method = HEAD) {
@@ -75,5 +76,18 @@ server {
     }
 }
 ```
-
+**部署到非根目录**
+```env
+# 在.env 配置路径
+VITE_BASE_URL = /admin/
+```
+```bash
+server {
+    location /admin/ {
+        alias   /usr/share/nginx/html/;
+        index  index.html index.htm;
+        try_files  $uri $uri/ /admin/index.html;
+    }
+}
+```
 Apache、Node、Express 等更多服务器配置, 可以点击[查看详情](https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90)
