@@ -83,7 +83,7 @@ VITE_BASE_URL = /admin/
 ```
 ```bash
 server {
-    location /admin/ {
+    location ^~ /admin {
         alias   /usr/share/nginx/html/;
         index  index.html index.htm;
         try_files  $uri $uri/ /admin/index.html;
