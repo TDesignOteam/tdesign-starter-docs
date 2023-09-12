@@ -6,7 +6,7 @@ spline: explain
 ### 发起请求
 
 TDesign Starter 初始化的项目中，采用 **[axios](https://github.com/axios/axios)** 做为请求的资源库，并对其做了封装，可以从`src/utils/request`的路径中引入封装的 request，并在具体场景中使用。我们建议您在`src/apis`目录中管理您的项目使用到的 api，并在具体组件/页面中使用。
-大部分情况下，您不需要改动`src/utils/request`中的代码，中需要在`src/apis`目录中新增您使用的接口，并在页面中引入接口使用即可。
+大部分情况下，您不需要改动`src/utils/request`中的代码，只需要在`src/apis`目录中新增您使用的接口，并在页面中引入接口使用即可。
 
 ```js
 // src/apis 管理api请求

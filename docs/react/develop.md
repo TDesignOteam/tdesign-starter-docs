@@ -120,7 +120,7 @@ export default [
 
 配置后，就可以在项目的侧边栏中找到新页面的入口了。
 
-**tip：如果您对 react 的开发方式不是很熟悉，可以查阅 [新手知识](https://vuejs.org/)。**
+**tip：如果您对 react 的开发方式不是很熟悉，可以查阅 [新手知识](https://zh-hans.react.dev/)。**
 
 #### 开发组件
 
@@ -158,7 +158,7 @@ export default React.memo(NewPage);
 
 这样，一个简单的组件就可以投入使用了。
 
-**tip 如果您对 react 的开发方式不是很熟悉，可以查阅 [新手知识](https://zh-hans.reactjs.org/)。**
+**tip 如果您对 react 的开发方式不是很熟悉，可以查阅 [新手知识](https://zh-hans.react.dev/)。**
 
 ### 布局配置
 
