@@ -7,7 +7,8 @@ spline: explain
 
 #### 1、出现 Cannot find module ‘worker_threads’
 
-Vite 运行依赖 Node `12.0.0` 以上版本, Node 10.5 版本之前不支持 Worker，可通过`node -v`确认 Node 版本，如果是小于`12`的 Node 版本，升级 Node 版本即可。
+Vite 运行依赖于 Node `14.18+` 以上版本, Node 10.5 版本之前不支持 Worker, 可通过`node -v`确认 Node 版本, 如果是小于`14.18`的 Node 版本, 升级 Node 版本即可。
+**tips: 请注意，由于模板内置依赖缘故，模板最低所需 Node `16+` 以上版本**
 
 #### 2、 出现 wasm code commit Allocation failed - process out of memory
 
