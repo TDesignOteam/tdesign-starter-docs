@@ -8,7 +8,7 @@
   },
   "author": "tdesign",
   "dependencies": {
-    "tdesign-site-components": "^0.11.15",
+    "tdesign-site-components": "^0.13.13",
     "tdesign-vue": "^0.50.1",
     "vue": "2.6.14",
     "vue-router": "^3.5.3"
