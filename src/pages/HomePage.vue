@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <td-header></td-header>
+    <td-header disabled-locale></td-header>
     <div class="banner">
       <div class="banner-content">
         <div class="banner-title">TDesign 页面模板</div>
@@ -51,19 +51,12 @@
               <p class="card-title">中后台</p>
               <p class="card-subtitle">React</p>
               <a href="/starter/react/" target="_blank">
-                <t-button class="card-btn" variant="outline" theme="default"
-                  >预览</t-button
-                >
+                <t-button class="card-btn" variant="outline" theme="default">预览</t-button>
               </a>
               <a href="/starter/docs/react/get-started" target="_blank">
-                <t-button class="card-btn" variant="outline" theme="default"
-                  >使用文档</t-button
-                >
+                <t-button class="card-btn" variant="outline" theme="default">使用文档</t-button>
               </a>
-              <img
-                class="feature-img-light"
-                src="../../assets/icons/react.svg"
-              />
+              <img class="feature-img-light" src="../../assets/icons/react.svg" />
               <img class="feature-img-dark" src="../../assets/icons/react.svg" />
             </div>
           </div>
@@ -79,48 +72,22 @@
             <div class="card">
               <p class="card-title">Mobile 移动端</p>
               <div class="card-subtitle"><span>Miniprogram</span> <t-tag>待上线</t-tag></div>
-              <t-button
-                class="card-btn"
-                variant="outline"
-                theme="default"
-                disabled
-              >
+              <t-button class="card-btn" variant="outline" theme="default" disabled>
                 预览
               </t-button>
-              <t-button
-                class="card-btn"
-                variant="outline"
-                theme="default"
-                disabled
-              >
+              <t-button class="card-btn" variant="outline" theme="default" disabled>
                 使用文档
               </t-button>
-              <img
-                class="feature-img-light"
-                src="../../assets/icons/mini-program.svg"
-              />
-              <img
-                class="feature-img-dark"
-                src="../../assets/icons/mini-program.svg"
-              />
+              <img class="feature-img-light" src="../../assets/icons/mini-program.svg" />
+              <img class="feature-img-dark" src="../../assets/icons/mini-program.svg" />
             </div>
             <div class="card">
               <p class="card-title">Mobile 移动端</p>
               <div class="card-subtitle"><span>Mobile Vue</span><t-tag>待上线</t-tag></div>
-              <t-button
-                class="card-btn"
-                variant="outline"
-                theme="default"
-                disabled
-              >
+              <t-button class="card-btn" variant="outline" theme="default" disabled>
                 预览
               </t-button>
-              <t-button
-                class="card-btn"
-                variant="outline"
-                theme="default"
-                disabled
-              >
+              <t-button class="card-btn" variant="outline" theme="default" disabled>
                 使用文档
               </t-button>
               <img class="feature-img-light" src="../../assets/icons/vue.svg" />
@@ -129,26 +96,13 @@
             <div class="card">
               <p class="card-title">Mobile 移动端</p>
               <div class="card-subtitle"><span>Mobile React</span><t-tag>待上线</t-tag></div>
-              <t-button
-                class="card-btn"
-                variant="outline"
-                theme="default"
-                disabled
-              >
+              <t-button class="card-btn" variant="outline" theme="default" disabled>
                 预览
               </t-button>
-              <t-button
-                class="card-btn"
-                variant="outline"
-                theme="default"
-                disabled
-              >
+              <t-button class="card-btn" variant="outline" theme="default" disabled>
                 使用文档
               </t-button>
-              <img
-                class="feature-img-light"
-                src="../../assets/icons/react.svg"
-              />
+              <img class="feature-img-light" src="../../assets/icons/react.svg" />
               <img class="feature-img-dark" src="../../assets/icons/react.svg" />
             </div>
           </div>
@@ -165,14 +119,10 @@
           </div>
         </div>
         <div class="feature-right">
-          <img
-            class="feature-img-light"
-            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-terminal.png"
-          />
-          <img
-            class="feature-img-dark"
-            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-terminal.png"
-          />
+          <img class="feature-img-light"
+            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-terminal.png" />
+          <img class="feature-img-dark"
+            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-terminal.png" />
         </div>
       </div>
       <div class="feature">
@@ -184,25 +134,19 @@
           </div>
         </div>
         <div class="feature-right">
-          <img
-            class="feature-img-light"
-            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-industry-light.png"
-          />
-          <img
-            class="feature-img-dark"
-            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-industry-dark.png"
-          />
+          <img class="feature-img-light"
+            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-industry-light.png" />
+          <img class="feature-img-dark"
+            src="https://tdesign.gtimg.com/tdesign-starter/docs/starter-docs-industry-dark.png" />
         </div>
       </div>
     </div>
-    <td-doc-footer
-      style="
+    <td-doc-footer style="
         --content-padding-right: 0;
         --content-max-width: 1440px;
         --content-padding-left-right: 48px;
         --footer-logo-position: unset;
-      "
-    ></td-doc-footer>
+      "></td-doc-footer>
   </div>
 </template>
 <script>
