@@ -1,6 +1,6 @@
 <template>
   <td-doc-layout>
-    <td-header ref="tdHeader" slot="header"></td-header>
+    <td-header ref="tdHeader" slot="header" disabled-locale></td-header>
     <td-doc-aside ref="tdDocAside" title="TDesign Starter"> </td-doc-aside>
 
     <router-view :style="contentStyle" @loaded="contentLoaded" />
