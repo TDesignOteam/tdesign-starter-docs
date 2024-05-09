@@ -36,12 +36,16 @@ router 目录下，为需要调整展示的一级路由的 meta 字段增加`sin
 
 #### 7、出现 No match found for location with path “xxx”
 
-该问题会出现在 `0.7.0` 版本以上，问题来源于 `0.7.0` 新增的后端权限控制。在非固定路由的路径下刷新会触发一次router定向。
+该问题会出现在 `0.7.0` 版本以上，问题来源于 `0.7.0` 新增的后端权限控制。在非固定路由的路径下刷新会触发一次 router 定向。
 但是此时路由守卫并未运行， 因此出现该错误，但在路由守卫运行后会显示页面而不是白屏。对于该问题目前并没有更好的解决办法。
 可以尝试将 `后台权限控制` 替换为 `前端权限控制` 来避免该问题
 
 #### 8、我不希望在运行脚本的时候自动打开浏览器，应该怎么做？
 
 在文件 `package.json` 的 `scripts` 字段中，将命令中的 `--open` 参数删除即可。
+
+#### 9、本地开发正常，部署到生产环境出现 Fail to load module script：Expected a JavaScript module script but server responded with MIME type of xx 的错误信息？
+
+检查服务器返回的 content-type 是否符合文件类型。如使用 nginx，可以检查是否配置`include mine.types`
 
 <br/>
