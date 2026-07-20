@@ -6,10 +6,10 @@ import routes from "./routes";
 import App from "./App.vue";
 
 // import site webcomponents
-import "tdesign-site-components";
-import "tdesign-site-components/lib/styles/style.css";
-import "tdesign-site-components/lib/styles/prism-theme.less";
-import "tdesign-site-components/lib/styles/prism-theme-dark.less";
+import "@tdesign/site-components";
+import "@tdesign/site-components/lib/styles/style.css";
+import "@tdesign/site-components/lib/styles/prism-theme.less";
+import "@tdesign/site-components/lib/styles/prism-theme-dark.less";
 
 import "tdesign-vue/es/style/index.css";
 
