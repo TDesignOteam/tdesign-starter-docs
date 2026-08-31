@@ -43,7 +43,7 @@ touch docs/get-started.md
 
 ### 将你的文档添加到菜单栏
 
-打开 `site/config.js` 文件，修改 export 的对象即可。比如，
+打开 `site.config.js` 文件，修改 export 的对象即可。比如，
 
 ```js
 module.exports = {

@@ -10,21 +10,22 @@ spline: explain
 ```bash
 .
 ├── README.md                         # 说明文档
-├── index.html                        # 主 html 文件
+├── index.html                        # 主入口文件 (HTML)
 ├── docs
-├── mock                              # mock 目录
+├── mock                              # Mock 目录
 │     └── index.ts
 ├── package.json
 ├── package-lock.json
-├── node_modules                      # 项目依赖
+├── node_modules                      # 项目相关依赖
 ├── public
 │     └── favicon.ico
 ├── src                               # 页面代码
 ├── .env                              # 生产环境变量
 ├── .env.development                  # 开发环境变量
-├── commitlint.config.js              # commintlint 规范
-├── tsconfig.json                     # typescript 配置文件
-└── vite.config.js                    # vite 配置文件
+├── commitlint.config.js              # Commintlint 规范
+├── eslint.config.js                  # ESLint 规范
+├── tsconfig.json                     # TypeScript 配置文件
+└── vite.config.js                    # Vite 配置文件
 ```
 
 ### 页面代码结构
@@ -82,7 +83,7 @@ src
 │     ├── font-family.less              # 字体文件（腾讯体W7）
 │     ├── layout.less                   # 全局样式布局
 │     ├── reset.less                    # 对默认样式的重置
-│     └── variables.less                # 模板样式 token
+│     └── variables.less                # 模板样式 Token
 ├── types                             # 类型文件目录
 └── utils                             # 工具层
 │     ├── route                         # 路由工具封装
@@ -97,7 +98,7 @@ src
 ### 环境变量
 
 在项目的根目录，有 `.env` 配置文件，项目会根据启动的命令中的 `mode` 参数，加载指定的配置文件的配置来运行，
-如本地环境执行 `npm run dev`，因为对于命令中的`mode` 参数为`development`，项目运行会加载`.env.development`的配置来运行。
+如本地环境执行 `npm run dev`，因为对于命令中的 `mode` 参数为 `development`，项目运行会加载 `.env.development` 的配置来运行。
 项目初始化内置了 `.env.development`、`.env.test` 和 `.env` 分别对应本地开发环境、测试环境 和 生产（正式）环境，也可以根据实际需求继续扩展。
 
 #### 内置的环境变量
@@ -127,9 +128,10 @@ Options API 示例
 <!-- src/pages/my-new-page/index.vue -->
 <templates>
   <div>
-    <t-page-header>index.vue示例</t-page-header>
+    <t-page-header> index.vue 示例</t-page-header>
   </div>
 </templates>
+
 <script>
 export default {
   components: {},
@@ -139,6 +141,7 @@ export default {
   methods: {},
 };
 </script>
+
 <style lang="less">
 // 如果需要导入样式
 @import "./index.less";
@@ -153,9 +156,10 @@ Composition API 示例
 <!-- src/pages/my-new-page/index.vue -->
 <templates>
   <div>
-    <t-page-header>index.vue示例</t-page-header>
+    <t-page-header> index.vue 示例</t-page-header>
   </div>
 </templates>
+
 <script setup>
 import { ref, onMounted } from "vue";
 
@@ -172,6 +176,7 @@ onMounted(() => {
   console.log(`The initial count is ${count.value}.`);
 });
 </script>
+
 <style lang="less">
 // 如果需要导入样式
 @import "./index.less";
@@ -180,9 +185,9 @@ onMounted(() => {
 </style>
 ```
 
-**tips: 一般情况下推荐您使用`Composition API`进行开发，`Composition API`有关的好处请[点击此处](https://vuejs.org/guide/introduction.html#api-styles)**
+**tips: 一般情况下推荐您使用 `Composition API` 进行开发，`Composition API` 有关的好处请 [点击此处](https://vuejs.org/guide/introduction.html#api-styles)**
 
-然后，需要在配置新页面的路由。根据具体的需求，修改 `src/router/modules` 中的文件。
+然后，需要在配置新页面的路由。根据具体的需求，修改 `./src/router/modules` 中的文件。
 
 ```javascript
 export default [
@@ -208,15 +213,15 @@ export default [
 
 菜单（侧边栏和面包屑）由路由配置自动生成，根据路由变化可自动匹配，开发者无需手动处理这些逻辑。
 
-**tip：如果您对 vue 的开发方式不是很熟悉，可以查阅 [新手知识](https://vuejs.org/)。**
+**tip：如果您对 Vue 的开发方式不是很熟悉，可以查阅 [新手知识](https://vuejs.org/)。**
 
 #### 开发组件
 
-当 TDesign 提供的组件不能满足您的需求的时候，您可以根据需要开发新的组件, 推荐放置在`src/component`目录下。
+当 TDesign 提供的组件不能满足您的需求的时候，您可以根据需要开发新的组件, 推荐放置在 `./src/component` 目录下。
 
 组件的开发方式和 **页面组件** 的开发方式类似，不过您不再需要去为它增加路由，而是在您的组件中引用即可。
 
-首先，在 `src/components` 下新增一个组件文件，`new-component.vue`
+首先，在 `./src/components` 下新增一个组件文件，`new-component.vue`
 
 ```vue
 <!-- 自定义组件 new-component.vue -->
@@ -238,10 +243,11 @@ Options API 示例
   <div>
     <t-page-header>个人中心</t-page-header>
     <!-- 使用组件，在组件中的内容会替换掉组件的slot-->
-    <my-component v-slot="{ 'new-component':'我插入slot组件的内容' }">
+    <my-component v-slot="{ 'new-component':'我插入 slot 组件的内容' }">
     </my-component>
   </div>
 </template>
+
 <script>
 // 引入组件
 import MyComponent from "@/components/new-component.vue";
@@ -273,15 +279,17 @@ Composition API 示例
 <template>
   <div>
     <t-page-header>个人中心</t-page-header>
-    <!-- 使用组件，在组件中的内容会替换掉组件的slot-->
-    <my-component v-slot="{ 'new-component':'我插入slot组件的内容' }">
+    <!-- 使用组件，在组件中的内容会替换掉组件的 slot -->
+    <my-component v-slot="{ 'new-component':'我插入 slot 组件的内容' }">
     </my-component>
   </div>
 </template>
+
 <script setup>
 // 引入组件
 import MyComponent from "@/components/new-component.vue";
 </script>
+
 <style lang="less">
 // 如果需要导入样式
 @import "./index.less";
@@ -292,13 +300,13 @@ import MyComponent from "@/components/new-component.vue";
 
 这样，一个简单的组件就可以投入使用了。
 
-**tip 如果您对 vue 的开发方式不是很熟悉，可以查阅 [新手知识](https://vuejs.org/)。**
+**tip 如果您对 Vue 的开发方式不是很熟悉，可以查阅 [新手知识](https://vuejs.org/)。**
 
 ### 布局配置
 
 网站布局支持空布局、侧边栏导航布局、 侧边栏布局加头部导航和头部导航等四种中后台常用布局。布局文件位于 `./src/layouts`。
 
-使用这些布局，您只需要在 `src/router` 中配置路由的时候，将 `父级路由` 配置成相应的布局组件就可以了。示例代码如下：
+使用这些布局，您只需要在 `./src/router` 中配置路由的时候，将 `父级路由` 配置成相应的布局组件就可以了。示例代码如下：
 
 ```js
 export default [
